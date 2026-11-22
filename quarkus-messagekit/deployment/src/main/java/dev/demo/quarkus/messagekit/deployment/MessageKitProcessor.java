@@ -1,6 +1,13 @@
 package dev.demo.quarkus.messagekit.deployment;
 
-/** Add the first build step in Lab 1. */
+import io.quarkus.deployment.annotations.BuildStep;
+import io.quarkus.deployment.builditem.FeatureBuildItem;
+
+/** Quarkus augmentation processor for the MessageKit extension. */
 public class MessageKitProcessor {
-    // TODO Lab 1: return FeatureBuildItem("messagekit") from an @BuildStep method.
+
+    @BuildStep
+    FeatureBuildItem feature() {
+        return new FeatureBuildItem("messagekit");
+    }
 }
