@@ -9,15 +9,15 @@ import jakarta.inject.Singleton;
 import dev.demo.messagekit.MessageCatalog;
 import dev.demo.messagekit.MessageFormatter;
 
-/** Lab 2: CDI producer supplied by the extension runtime module. */
+/** The formatter now receives public runtime configuration. */
 @ApplicationScoped
 public class MessageFormatterProducer {
 
     @Produces
     @Singleton
-    public MessageFormatter formatter() {
+    public MessageFormatter formatter(MessageKitConfig config) {
         MessageCatalog catalog = new MessageCatalog(Map.of(
                 "en", "Hello", "es", "Hola", "nl", "Hallo"));
-        return new MessageFormatter(catalog, "en", "", false);
+        return new MessageFormatter(catalog, config.language(), config.prefix().orElse(""), config.uppercase());
     }
 }
