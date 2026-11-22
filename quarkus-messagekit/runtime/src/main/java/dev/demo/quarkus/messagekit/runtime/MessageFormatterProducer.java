@@ -1,4 +1,4 @@
-package dev.demo.app;
+package dev.demo.quarkus.messagekit.runtime;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import jakarta.inject.Singleton;
 import dev.demo.messagekit.MessageCatalog;
 import dev.demo.messagekit.MessageFormatter;
 
-/** Manual application-owned wiring. Lab 2 moves this into the extension. */
+/** Lab 2: CDI producer supplied by the extension runtime module. */
 @ApplicationScoped
 public class MessageFormatterProducer {
 
